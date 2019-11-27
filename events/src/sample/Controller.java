@@ -2,6 +2,7 @@ package sample;
 
 //import java.awt.*;
 import javafx.fxml.FXML;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
@@ -15,6 +16,8 @@ public class Controller {
     private Button helpButton;
     @FXML
     private Button okayButton;
+    @FXML
+    private CheckBox clearFieldCheck;
 
     @FXML
     public void initialize(){
@@ -24,6 +27,10 @@ public class Controller {
     @FXML
     public void onOkayClicked(){
         System.out.println("Okay, your name is "+ nameField.getText());
+        if(clearFieldCheck.isSelected()){
+            nameField.clear();
+            okayButton.setDisable(true);
+        }
     }
 
     @FXML
