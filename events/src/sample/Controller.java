@@ -13,6 +13,13 @@ public class Controller {
     private Button cancelButton;
     @FXML
     private Button helpButton;
+    @FXML
+    private Button okayButton;
+
+    @FXML
+    public void initialize(){
+        okayButton.setDisable(true);
+    }
 
     @FXML
     public void onOkayClicked(){
@@ -26,5 +33,12 @@ public class Controller {
         }else if(e.getSource().equals(helpButton)){
             System.out.println("Help");
         }
+    }
+
+    @FXML
+    public void handleKeyReleased(){
+        String text = nameField.getText();
+        boolean disableButton = text.isEmpty() || text.trim().isEmpty();
+        okayButton.setDisable(disableButton);
     }
 }
